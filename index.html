@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .bookmark {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            width: 150px;
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .bookmark:hover {
+            transform: scale(1.1);
+        }
+
+        .bookmark img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .sections {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            text-align: center;
+        }
+
+        .section h3 {
+            margin-bottom: 20px;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-container a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .link-container a img {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Bookmarks</h1>
+    <div class="container">
+        <a target="_blank" href="https://web.whatsapp.com/" class="bookmark">
+            <img src="whatsapp.png">
+            <span>WhatsApp</span>
+        </a>
+        <a target="_blank" href="https://www.facebook.com/?filter=all&sk=h_chr" class="bookmark">
+            <img src="facebook.png">
+            <span>Facebook</span>
+        </a>
+        <a target="_blank" href="https://www.youtube.com/" class="bookmark">
+            <img src="youtube.png">
+            <span>YouTube</span>
+        </a>
+        <a target="_blank" href="https://chatgpt.com/" class="bookmark">
+            <img src="chatgpt.png">
+            <span>ChatGPT</span>
+        </a>
+        <a target="_blank" href="https://gemini.google.com/app" class="bookmark">
+            <img src="gemini.png">
+            <span>Gemini</span>
+        </a>
+        <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox" class="bookmark">
+            <img src="gmail.png">
+            <span>Gmail</span>
+        </a>
+    </div>
+
+    <div class="sections">
+        <div class="section">
+            <h3>Judges</h3>
+            <div class="link-container">
+                <a target="_blank" href="https://codeforces.com/problemset/status?friends=on"><img src="codeforces.png"> Status CF</a>
+                <a target="_blank" href="https://vjudge.net/group"><img src="vjudge.png"> Vjudge Groups</a>
+                <a target="_blank" href="https://atcoder.jp/contests/"><img src="atcoder.png"> Atcoder Contest</a>
+                <a target="_blank" href="https://lightoj.com/problems/category"><img src="lightoj.png"> LightOj Category</a>
+
+                <a target="_blank" href="https://www.codechef.com/contests"><img src="codechef.png"> Codechef Contest</a>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Ladders</h3>
+            <div class="link-container">
+                <a target="_blank" href="https://clist.by/"><img src="clist.png"> CList</a>
+                <a target="_blank" href="https://cftracker.netlify.app/contests"><img src="cftracker.png"> CF Tracker</a>
+                <a target="_blank" href="https://kenkoooo.com/atcoder/#/table/"><img src="atcoder.png"> Kenkoo Contests</a>
+                <a target="_blank" href="https://kenkoooo.com/atcoder/#/training/Boot%20camp%20for%20Beginners"><img src="atcoder.png"> Kenkoo Problems</a>
+                
+            </div>
+        </div>
+        <div class="section">
+            <h3>Notion</h3>
+            <div class="link-container">
+                <a target="_blank" href="https://www.notion.so/dfe273d18255445dae353742bfa2fd26"><img src="notion.png"> Home</a>
+                <a target="_blank" href="https://www.notion.so/GRAPH-11e1b7269645800fb672db4d31009461"><img src="notion.png"> Graph</a>
+                <a target="_blank" href="https://www.notion.so/Practice-again-1541b726964580b7923ce066a09cfeeb"><img src="notion.png"> Practice Again</a>
+                <a target="_blank" href="https://www.notion.so/Problem-Database-0cf5d347afb34c7eafdc001a9ccc953f"><img src="notion.png"> Problem Database</a>
+                <a target="_blank" href="https://www.notion.so/CHILL-CONTEST-DO-THESE-FOR-PINIC-24e58798376b44bead316b06149c9196"><img src="notion.png"> Chill Contest / Pinik</a>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Socials</h3>
+            <div class="link-container">
+                <a target="_blank" href="https://x.com/home"><img src="x.png"> X</a>
+                <a target="_blank" href="https://www.quora.com/"><img src="quora.png"> Quora</a>
+                <a target="_blank" href="https://www.chess.com/play"><img src="chess.png"> Chess</a>
+                <a target="_blank" href="https://www.reddit.com/"><img src="reddit.png"> Reddit</a>
+                <a target="_blank" href="https://github.com/dashboard"><img src="github.png"> Github</a>
+                <a target="_blank" href="https://discord.com/channels/@me/"><img src="discord.png"> Discord</a>
+                <a target="_blank" href="https://web.telegram.org/k/"><img src="telegram.png"> Telegram</a>
+                <a target="_blank" href="https://www.instagram.com/"><img src="instagram.png"> Instagram</a>
+            </div>
+        </div>
+        <div class="section">
+            <h3>News</h3>
+            <div class="link-container">
+                <a target="_blank" href="https://www.prothomalo.com/"><img src="prothomalo.png"> Prothom Alo</a>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Olympiad</h3>
+            <div class="link-container">
+                <a target="_blank" href="https://matholympiad.org.bd/"><img src="imo.png"> IMO</a>
+                <a target="_blank" href="https://olympiad.org.bd/"><img src="ioi.png"> IOI</a>
+                <a target="_blank" href="https://usaco.guide/dashboard"><img src="usaco.png"> USACO</a>
+            </div>
+        </div>
+    </div>
+    <footer style="height: 200px;">
+
+    </footer>
+</body>
+</html>
