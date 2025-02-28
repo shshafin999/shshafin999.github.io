@@ -76,8 +76,22 @@
             flex-direction: column;
             gap: 10px;
         }
+        .link-container_upper {
+            display: flex;
+            flex-direction: row;
+            gap: 80px;
+        }
 
         .link-container a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #000000;
+            /* font-weight: bold; */
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .link-container_upper a {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -95,35 +109,25 @@
             height: 20px;
             border-radius: 5px;
         }
+        .link-container_upper a img {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a target="_blank" href="https://web.whatsapp.com/" class="bookmark">
-            <img src="whatsapp.png">
-            <span>WhatsApp</span>
-        </a>
-        <a target="_blank" href="https://www.facebook.com/?filter=all&sk=h_chr" class="bookmark">
-            <img src="facebook.png">
-            <span>Facebook</span>
-        </a>
-        <a target="_blank" href="https://www.youtube.com/" class="bookmark">
-            <img src="youtube.png">
-            <span>YouTube</span>
-        </a>
-        <a target="_blank" href="https://chatgpt.com/" class="bookmark">
-            <img src="chatgpt.png">
-            <span>ChatGPT</span>
-        </a>
-        <a target="_blank" href="https://gemini.google.com/app" class="bookmark">
-            <img src="gemini.png">
-            <span>Gemini</span>
-        </a>
-        <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox" class="bookmark">
-            <img src="gmail.png">
-            <span>Gmail</span>
-        </a>
+        <div class="link-container_upper">
+            <a target="_blank" href="https://web.whatsapp.com/"><img src="whatsapp.png"> WhatsApp</a>
+            <a target="_blank" href="https://www.facebook.com/?filter=all&sk=h_chr"><img src="facebook.png"> Facebook</a>
+            <a target="_blank" href="https://www.youtube.com/"><img src="youtube.png"> YouTube</a>
+            <a target="_blank" href="https://codeforces.com/problemset/status?friends=on"><img src="codeforces.png"> Status CF</a>
+            <a target="_blank" href="https://chatgpt.com/"><img src="chatgpt.png"> ChatGPT</a>
+            <a target="_blank" href="https://gemini.google.com/app"><img src="gemini.png"> Gemini</a>
+            <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox"><img src="gmail.png"> Gmail</a>
+        </div>
     </div>
 
     <div class="sections">
@@ -131,7 +135,7 @@
             <h3>Judges</h3>
             <div class="link-container">
                 <a target="_blank" href="https://usaco.guide/dashboard"><img src="usaco.png"> USACO</a>
-                <a target="_blank" href="https://codeforces.com/problemset/status?friends=on"><img src="codeforces.png"> Status CF</a>
+                <a target="_blank" href="https://codeforces.com/profile/Shafayet..."><img src="codeforces.png"> Shafayet...</a>
                 <a target="_blank" href="https://csacademy.com/contest/archive/"><img src="csacademy.png"> CS Academy</a>
                 <a target="_blank" href="https://vjudge.net/group"><img src="vjudge.png"> Vjudge Groups</a>
                 <a target="_blank" href="https://atcoder.jp/contests/"><img src="atcoder.png"> Atcoder Contest</a>
@@ -245,7 +249,7 @@
 
 
 
-    <div class="section" style="width: 1000px; margin-left: 150px;">
+    <div class="section" style="margin-left: 150px; width: 700px;">
         <h3>Others</h3>
         <div class="link-container">
             <a target="_blank" href="https://www.prothomalo.com/world/hljaoxeamn"><img src="prothomalo.png"> বিশ্বের ১০ প্রাচীন শহর</a>
