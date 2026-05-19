@@ -115,6 +115,33 @@
             border-radius: 5px;
         }
     </style>
+    <!-- /* Mobile Responsiveness */ -->
+@media (max-width: 768px) {
+    .container {
+        gap: 20px; /* Reduces the large 50px gap between bookmarks */
+        margin-top: 30px;
+    }
+
+    .bookmark {
+        width: 90px; /* Slightly shrinks bookmarks to fit more on screen */
+        padding: 15px;
+    }
+
+    .sections {
+        gap: 15px; /* Reduces the gap between section cards */
+    }
+
+    .section {
+        width: 90%; /* Allows cards to span the screen width on phones */
+        max-width: 300px;
+    }
+
+    .link-container_upper {
+        flex-direction: column; /* Stacks these links vertically instead of side-by-side */
+        gap: 15px; /* Removes the massive 80px gap */
+        align-items: center; /* Centers the stacked items */
+    }
+}
 </head>
 <body>
 
