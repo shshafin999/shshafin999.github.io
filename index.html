@@ -5,55 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookmarks</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             background-color: rgb(255, 255, 255);
             text-align: center;
+            color: #000000;
+            padding: 20px 10px;
         }
+
+        /* Top Navigation */
         .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .link-container_upper {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 50px;
-            margin-top: 50px;
+            gap: 20px;
+            max-width: 1200px;
         }
-        .bookmark {
+
+        .link-container_upper a {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;  
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            width: 120px;
-            /* transition: transform 0.2s; */
+            gap: 10px;
             text-decoration: none;
             color: #000000;
-            /* font-weight: bold; */
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+            transition: color 0.2s, transform 0.2s;
         }
 
-        /* .bookmark:hover {
-            transform: scale(1.1);
-        } */
-
-        .bookmark img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-        }
-
-        .container :hover {
+        .link-container_upper a:hover {
             color: rgb(236, 15, 15);
+            transform: translateY(-2px);
         }
 
+        .link-container_upper a img {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        /* Sections Grid */
         .sections {
             margin-top: 50px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section {
@@ -61,25 +76,21 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            width: 200px;
+            width: 220px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
-
-     
 
         .section h3 {
             margin-bottom: 20px;
+            font-family: Arial, sans-serif;
         }
 
         .link-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-        }
-        .link-container_upper {
-            display: flex;
-            flex-direction: row;
-            gap: 80px;
+            gap: 12px;
         }
 
         .link-container a {
@@ -88,18 +99,9 @@
             gap: 10px;
             text-decoration: none;
             color: #000000;
-            /* font-weight: bold; */
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            transition: color 0.2s;
         }
-        .link-container_upper a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #000000;
-            /* font-weight: bold; */
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
+
         .link-container a:hover {
             color: rgb(236, 15, 15);
         }
@@ -109,55 +111,92 @@
             height: 20px;
             border-radius: 5px;
         }
-        .link-container_upper a img {
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
+
+        /* Wide Sections (Bottom Panels) */
+        .wide-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto; /* Centers the block automatically */
+            text-align: center;
         }
+
+        .wide-section h3 {
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Code Snippet Formatting */
+        .code-snippet {
+            text-align: left;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 1.6;
+            overflow-x: auto; /* Allows horizontal scrolling on mobile so it doesn't break the layout */
+        }
+
+        .code-snippet span.red {
+            color: red;
+            font-family: monospace;
+            background: #ffe6e6;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .code-snippet p {
+            margin-top: 10px;
+        }
+
         /* Mobile Responsiveness */ 
-   @media (max-width: 768px) {
-    .container {
-        gap: 20px; /* Reduces the large 50px gap between bookmarks */
-        margin-top: 30px;
-    }
+        @media (max-width: 768px) {
+            .link-container_upper {
+                gap: 10px;
+            }
 
-    .bookmark {
-        width: 90px; /* Slightly shrinks bookmarks to fit more on screen */
-        padding: 15px;
-    }
+            .link-container_upper a {
+                width: 46%; /* Places two buttons side-by-side on mobile */
+                justify-content: center;
+            }
 
-    .sections {
-        gap: 15px; /* Reduces the gap between section cards */
-    }
+            .sections {
+                gap: 15px;
+            }
 
-    .section {
-        width: 90%; /* Allows cards to span the screen width on phones */
-        max-width: 300px;
-    }
+            .section {
+                width: 100%;
+                max-width: 350px; /* Allows cards to fill screen width on phones */
+            }
 
-    .link-container_upper {
-        flex-direction: column; /* Stacks these links vertically instead of side-by-side */
-        gap: 15px; /* Removes the massive 80px gap */
-        align-items: center; /* Centers the stacked items */
-    }
+            .wide-section {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .link-container_upper a {
+                width: 100%; /* Stacks top links fully vertically on very small screens */
+            }
+        }
     </style>
-    
-
 </head>
 <body>
 
     <div class="container">
         <div class="link-container_upper">
-            
-            <a target="_blank" href="https://tasks.google.com/u/1/tasks/"><img src="task.png"> Tasks</a>
-            <a target="_blank" href="https://www.youtube.com/"><img src="youtube.png"> YouTube</a>
-            <a target="_blank" href="https://codeforces.com/problemset/status?friends=on"><img src="codeforces.png"> Status CF</a>
-            <a target="_blank" href="https://github.com/Shafayet999?tab=repositories"><img src="github.png"> Github Repos</a>
-            <a target="_blank" href="https://grok.com/"><img src="grok.png"> Grok</a>
-            <a target="_blank" href="https://claude.ai/new"><img src="claude.png"> Claude</a>
-            <a target="_blank" href="https://chatgpt.com/"><img src="chatgpt.png"> ChatGPT</a>
-            <a target="_blank" href="https://gemini.google.com/app"><img src="gemini_colorful.png"> Gemini</a>
-            <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox"><img src="gmail.png"> Gmail</a>
+            <a target="_blank" href="https://tasks.google.com/u/1/tasks/"><img src="task.png" alt=""> Tasks</a>
+            <a target="_blank" href="https://www.youtube.com/"><img src="youtube.png" alt=""> YouTube</a>
+            <a target="_blank" href="https://codeforces.com/problemset/status?friends=on"><img src="codeforces.png" alt=""> Status CF</a>
+            <a target="_blank" href="https://github.com/Shafayet999?tab=repositories"><img src="github.png" alt=""> Github Repos</a>
+            <a target="_blank" href="https://grok.com/"><img src="grok.png" alt=""> Grok</a>
+            <a target="_blank" href="https://claude.ai/new"><img src="claude.png" alt=""> Claude</a>
+            <a target="_blank" href="https://chatgpt.com/"><img src="chatgpt.png" alt=""> ChatGPT</a>
+            <a target="_blank" href="https://gemini.google.com/app"><img src="gemini_colorful.png" alt=""> Gemini</a>
+            <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox"><img src="gmail.png" alt=""> Gmail</a>
         </div>
     </div>
 
@@ -165,217 +204,200 @@
         <div class="section">
             <h3>Judges</h3>
             <div class="link-container">
-                <a target="_blank" href="https://cses.fi/problemset/"><img src="cses.png"> CSES</a>
-                <a target="_blank" href="https://usaco.guide/dashboard"><img src="usaco.png"> USACO</a>
-                <a target="_blank" href="https://codeforces.com/profile/Shafayet..."><img src="codeforces.png"> Shafayet...</a>
-                <a target="_blank" href="https://csacademy.com/contest/archive/"><img src="csacademy.png"> CS Academy</a>
-                <a target="_blank" href="https://codeforces.com/problemset"><img src="codeforces.png"> Problem Set</a>
-                <a target="_blank" href="https://vjudge.net/group"><img src="vjudge.png"> Vjudge Groups</a>
-                <a target="_blank" href="https://atcoder.jp/contests/"><img src="atcoder.png"> Atcoder Contest</a>
-                <a target="_blank" href="https://lightoj.com/problems/category"><img src="lightoj.png"> LightOj Category</a>
-                <a target="_blank" href="https://www.codechef.com/contests"><img src="codechef.png"> Codechef Contest</a>
+                <a target="_blank" href="https://cses.fi/problemset/"><img src="cses.png" alt=""> CSES</a>
+                <a target="_blank" href="https://usaco.guide/dashboard"><img src="usaco.png" alt=""> USACO</a>
+                <a target="_blank" href="https://codeforces.com/profile/Shafayet..."><img src="codeforces.png" alt=""> Shafayet...</a>
+                <a target="_blank" href="https://csacademy.com/contest/archive/"><img src="csacademy.png" alt=""> CS Academy</a>
+                <a target="_blank" href="https://codeforces.com/problemset"><img src="codeforces.png" alt=""> Problem Set</a>
+                <a target="_blank" href="https://vjudge.net/group"><img src="vjudge.png" alt=""> Vjudge Groups</a>
+                <a target="_blank" href="https://atcoder.jp/contests/"><img src="atcoder.png" alt=""> Atcoder Contest</a>
+                <a target="_blank" href="https://lightoj.com/problems/category"><img src="lightoj.png" alt=""> LightOj Category</a>
+                <a target="_blank" href="https://www.codechef.com/contests"><img src="codechef.png" alt=""> Codechef Contest</a>
             </div>
         </div>
+
         <div class="section">
             <h3>Ladders</h3>
             <div class="link-container">
-                <a target="_blank" href="https://clist.by/"><img src="clist.png"> CList</a>
-                <a target="_blank" href="https://cftracker.netlify.app/contests"><img src="cftracker.png"> CF Tracker</a>
-                <a target="_blank" href="https://acodedaily.com/"><img src="ACDLadders.png"> ACD Ladder</a>
-                <a target="_blank" href="https://www.tle-eliminators.com/cp-sheet"><img src="tle.png"> CP-31 Sheet</a>
-                <a target="_blank" href="https://a2oj.netlify.app/"><img src="a2oj.png"> A2OJ Ladder</a>
-                <a target="_blank" href="https://c2-ladders-juol.onrender.com/"><img src="c2oj.png"> C2OJ Ladder</a>
-                <a target="_blank" href="https://kenkoooo.com/atcoder/#/table/"><img src="atcoder.png"> Kenkoo Contests</a>
-                <a target="_blank" href="https://kenkoooo.com/atcoder/#/training/Boot%20camp%20for%20Beginners"><img src="atcoder.png"> Kenkoo Problems</a>
-                
+                <a target="_blank" href="https://clist.by/"><img src="clist.png" alt=""> CList</a>
+                <a target="_blank" href="https://cftracker.netlify.app/contests"><img src="cftracker.png" alt=""> CF Tracker</a>
+                <a target="_blank" href="https://acodedaily.com/"><img src="ACDLadders.png" alt=""> ACD Ladder</a>
+                <a target="_blank" href="https://www.tle-eliminators.com/cp-sheet"><img src="tle.png" alt=""> CP-31 Sheet</a>
+                <a target="_blank" href="https://a2oj.netlify.app/"><img src="a2oj.png" alt=""> A2OJ Ladder</a>
+                <a target="_blank" href="https://c2-ladders-juol.onrender.com/"><img src="c2oj.png" alt=""> C2OJ Ladder</a>
+                <a target="_blank" href="https://kenkoooo.com/atcoder/#/table/"><img src="atcoder.png" alt=""> Kenkoo Contests</a>
+                <a target="_blank" href="https://kenkoooo.com/atcoder/#/training/Boot%20camp%20for%20Beginners"><img src="atcoder.png" alt=""> Kenkoo Problems</a>
             </div>
         </div>
+
         <div class="section">
             <h3>Notion</h3>
             <div class="link-container">
-                <a target="_blank" href="https://www.notion.so/Life-169d0318034d4e52b07ee6aa515af42c"><img src="notion.png"> Life</a>
-                <a target="_blank" href="https://www.notion.so/Accounts-5807dd2e782b4162bdd5634b243f8a41"><img src="notion.png"> Accounts</a>
-                <a target="_blank" href="https://www.notion.so/Next-Level-AI-Driven-Software-Engineering-Bootcamp-3521b726964580d9ade3f2f8eee92dbc"><img src="notion.png"> Next Level</a>
-                <a target="_blank" href="https://www.notion.so/Complete-Web-Dev-2d21b7269645802b8b88fc9474ace042"><img src="notion.png"> Complete Web Dev</a>
-                <a target="_blank" href="https://www.notion.so/Welcome-to-CP-ed107e898bd24efcb5fc280cb574ad54"><img src="notion.png"> Welcome to CP</a> 
-                <a target="_blank" href="https://www.notion.so/45a81abcb5484b39a080999bf7d00f7b?v=d2138903040b496586e50b6d448189a6"><img src="notion.png"> Welcome to STL</a>   
-                <a target="_blank" href="https://www.notion.so/Recent-Problems-2041b726964580d59966d3219e181d4a"><img src="notion.png"> Recent Problems</a>    
-                <a target="_blank" href="https://www.notion.so/Contest-Database-0cf5d347afb34c7eafdc001a9ccc953f"><img src="notion.png"> Contest Database</a>
-                <a target="_blank" href="https://www.notion.so/CHILL-CONTEST-DO-THESE-FOR-PINIC-24e58798376b44bead316b06149c9196"><img src="notion.png"> Chill Contest / Pinik</a>
-                
+                <a target="_blank" href="https://www.notion.so/Life-169d0318034d4e52b07ee6aa515af42c"><img src="notion.png" alt=""> Life</a>
+                <a target="_blank" href="https://www.notion.so/Accounts-5807dd2e782b4162bdd5634b243f8a41"><img src="notion.png" alt=""> Accounts</a>
+                <a target="_blank" href="https://www.notion.so/Next-Level-AI-Driven-Software-Engineering-Bootcamp-3521b726964580d9ade3f2f8eee92dbc"><img src="notion.png" alt=""> Next Level</a>
+                <a target="_blank" href="https://www.notion.so/Complete-Web-Dev-2d21b7269645802b8b88fc9474ace042"><img src="notion.png" alt=""> Complete Web Dev</a>
+                <a target="_blank" href="https://www.notion.so/Welcome-to-CP-ed107e898bd24efcb5fc280cb574ad54"><img src="notion.png" alt=""> Welcome to CP</a> 
+                <a target="_blank" href="https://www.notion.so/45a81abcb5484b39a080999bf7d00f7b?v=d2138903040b496586e50b6d448189a6"><img src="notion.png" alt=""> Welcome to STL</a>   
+                <a target="_blank" href="https://www.notion.so/Recent-Problems-2041b726964580d59966d3219e181d4a"><img src="notion.png" alt=""> Recent Problems</a>   
+                <a target="_blank" href="https://www.notion.so/Contest-Database-0cf5d347afb34c7eafdc001a9ccc953f"><img src="notion.png" alt=""> Contest Database</a>
+                <a target="_blank" href="https://www.notion.so/CHILL-CONTEST-DO-THESE-FOR-PINIC-24e58798376b44bead316b06149c9196"><img src="notion.png" alt=""> Chill Contest / Pinik</a>
             </div>
         </div>
+
         <div class="section">
             <h3>Socials</h3>
             <div class="link-container">
-                <a target="_blank" href="https://x.com/home"><img src="x.png"> X</a>
-                <a target="_blank" href="https://www.reddit.com/"><img src="reddit.png"> Reddit</a>
-                <a target="_blank" href="https://www.quora.com/"><img src="quora.png"> Quora</a>
-                <a target="_blank" href="https://discord.com/channels/@me/"><img src="discord.png"> Discord</a>
-                <a target="_blank" href="https://www.linkedin.com/feed/"><img src="linkedin.png"> Linkedin</a>
-                <a target="_blank" href="https://web.telegram.org/k/"><img src="telegram.png"> Telegram</a>
-                <a target="_blank" href="https://www.facebook.com/?filter=all&sk=h_chr"><img src="facebook.png"> Facebook</a>  
-                 <a target="_blank" href="https://www.instagram.com/"><img src="instagram.png"> Instagram</a>
-                <a target="_blank" href="https://web.whatsapp.com/"><img src="whatsapp.png"> WhatsApp</a>
-                
-               
-                
-                
-                <a target="_blank" href="https://accountscenter.facebook.com/personal_info/account_ownership_and_control/deletion_and_deactivation/?is_from_dialog=true"><img src="facebook.png"> Deactivate Facebook</a>
+                <a target="_blank" href="https://x.com/home"><img src="x.png" alt=""> X</a>
+                <a target="_blank" href="https://www.reddit.com/"><img src="reddit.png" alt=""> Reddit</a>
+                <a target="_blank" href="https://www.quora.com/"><img src="quora.png" alt=""> Quora</a>
+                <a target="_blank" href="https://discord.com/channels/@me/"><img src="discord.png" alt=""> Discord</a>
+                <a target="_blank" href="https://www.linkedin.com/feed/"><img src="linkedin.png" alt=""> Linkedin</a>
+                <a target="_blank" href="https://web.telegram.org/k/"><img src="telegram.png" alt=""> Telegram</a>
+                <a target="_blank" href="https://www.facebook.com/?filter=all&sk=h_chr"><img src="facebook.png" alt=""> Facebook</a>  
+                <a target="_blank" href="https://www.instagram.com/"><img src="instagram.png" alt=""> Instagram</a>
+                <a target="_blank" href="https://web.whatsapp.com/"><img src="whatsapp.png" alt=""> WhatsApp</a>
+                <a target="_blank" href="https://accountscenter.facebook.com/personal_info/account_ownership_and_control/deletion_and_deactivation/?is_from_dialog=true"><img src="facebook.png" alt=""> Deactivate Facebook</a>
             </div>
         </div>
+
         <div class="section">
             <h3>News</h3>
             <div class="link-container">
-                <a target="_blank" href="https://codeforces.com/top"><img src="codeforces.png"> CF Top</a>
-                <a target="_blank" href="https://codeforces.com/recent-actions"><img src="codeforces.png"> CF Recent</a>
-                <a target="_blank" href="https://www.gsmarena.com/"><img src="gsmarena.png"> GSMArena</a>
-                <a target="_blank" href="https://www.prothomalo.com/"><img src="prothomalo.png"> Prothom Alo</a>
+                <a target="_blank" href="https://codeforces.com/top"><img src="codeforces.png" alt=""> CF Top</a>
+                <a target="_blank" href="https://codeforces.com/recent-actions"><img src="codeforces.png" alt=""> CF Recent</a>
+                <a target="_blank" href="https://www.gsmarena.com/"><img src="gsmarena.png" alt=""> GSMArena</a>
+                <a target="_blank" href="https://www.prothomalo.com/"><img src="prothomalo.png" alt=""> Prothom Alo</a>
             </div>
         </div>
+
         <div class="section">
             <h3>Olympiad</h3>
             <div class="link-container">
-                <a target="_blank" href="https://olympiad.org.bd/"><img src="ioi.png"> IOI</a>
-                <a target="_blank" href="https://matholympiad.org.bd/"><img src="imo.png"> IMO</a>
-                <a target="_blank" href="https://usaco.guide/dashboard"><img src="usaco.png"> USACO</a>
+                <a target="_blank" href="https://olympiad.org.bd/"><img src="ioi.png" alt=""> IOI</a>
+                <a target="_blank" href="https://matholympiad.org.bd/"><img src="imo.png" alt=""> IMO</a>
+                <a target="_blank" href="https://usaco.guide/dashboard"><img src="usaco.png" alt=""> USACO</a>
             </div>
         </div>
+
         <div class="section">
             <h3>Skipped for later</h3>
             <div class="link-container">
-                <a target="_blank" href="https://docs.google.com/document/d/1i4N1LEBKZdn8fnOTPqVXWZ5AGB7VuN-qnqCqAkhbo1w/edit?tab=t.0#heading=h.bs93vxb3zhdj"><img src="docs.png"> DP</a>
-                <a target="_blank" href="https://chatgpt.com/share/67b35b9a-3f54-8003-bb24-8216f8b9a200"><img src="chatgpt.png">BFS / DFS When ?</a>
+                <a target="_blank" href="https://docs.google.com/document/d/1i4N1LEBKZdn8fnOTPqVXWZ5AGB7VuN-qnqCqAkhbo1w/edit?tab=t.0#heading=h.bs93vxb3zhdj"><img src="docs.png" alt=""> DP</a>
+                <a target="_blank" href="https://chatgpt.com/share/67b35b9a-3f54-8003-bb24-8216f8b9a200"><img src="chatgpt.png" alt="">BFS / DFS When ?</a>
             </div>
         </div>
+
         <div class="section">
             <h3>Learn</h3>
             <div class="link-container">
-                <a target="_blank" href="https://codeforces.com/edu/course/2"><img src="codeforces.png"> CF Edu</a>
-                <a target="_blank" href="https://codeforces.com/catalog"><img src="codeforces.png"> CF Catalog</a>
-                <a target="_blank" href="https://hkoi.org/en/training-materials/2021/"><img src="ioi.png"> Hong Kong</a>
-                <a target="_blank" href="https://atcoder.jp/contests/dp/tasks"><img src="atcoder.png"> Atcoder DP</a>
-                <a target="_blank" href="https://www.youtube.com/playlist?list=PL6h2Gn3JK5Lnew3sVMFp0sNWBOgsDo62x"><img src="youtube.png"> Atcoder DP</a>
-                <a target="_blank" href="https://csacademy.com/app/graph_editor"><img src="csacademy.png"> Graph Editor</a>
-                <a target="_blank" href="https://codeforces.com/blog/entry/23054"><img src="codeforces.png"> An Awesome List</a>
-                <a target="_blank" href="https://www.shafaetsplanet.com/"><img src="shafayet.png"> Shafayet's Planet</a>
-                <a target="_blank" href="https://www.geeksforgeeks.org/competitive-programming-a-complete-guide/"><img src="geekforgeeks.png"> Geekforgeeks CP</a>
-                <a target="_blank" href="https://youkn0wwho.academy/topic-list"><img src="youknowwho.png"> Ultimate Topic List</a>
-                <a target="_blank" href="https://csacademy.com/lessons/"><img src="csacademy.png"> CSAcademy Lessons</a>
-                <a target="_blank" href="https://youkn0wwho.academy/dashboard"><img src="youknowwho.png"> YouKnowWhoAcademy</a>
+                <a target="_blank" href="https://codeforces.com/edu/course/2"><img src="codeforces.png" alt=""> CF Edu</a>
+                <a target="_blank" href="https://codeforces.com/catalog"><img src="codeforces.png" alt=""> CF Catalog</a>
+                <a target="_blank" href="https://hkoi.org/en/training-materials/2021/"><img src="ioi.png" alt=""> Hong Kong</a>
+                <a target="_blank" href="https://atcoder.jp/contests/dp/tasks"><img src="atcoder.png" alt=""> Atcoder DP</a>
+                <a target="_blank" href="https://www.youtube.com/playlist?list=PL6h2Gn3JK5Lnew3sVMFp0sNWBOgsDo62x"><img src="youtube.png" alt=""> Atcoder DP</a>
+                <a target="_blank" href="https://csacademy.com/app/graph_editor"><img src="csacademy.png" alt=""> Graph Editor</a>
+                <a target="_blank" href="https://codeforces.com/blog/entry/23054"><img src="codeforces.png" alt=""> An Awesome List</a>
+                <a target="_blank" href="https://www.shafaetsplanet.com/"><img src="shafayet.png" alt=""> Shafayet's Planet</a>
+                <a target="_blank" href="https://www.geeksforgeeks.org/competitive-programming-a-complete-guide/"><img src="geekforgeeks.png" alt=""> Geekforgeeks CP</a>
+                <a target="_blank" href="https://youkn0wwho.academy/topic-list"><img src="youknowwho.png" alt=""> Ultimate Topic List</a>
+                <a target="_blank" href="https://csacademy.com/lessons/"><img src="csacademy.png" alt=""> CSAcademy Lessons</a>
+                <a target="_blank" href="https://youkn0wwho.academy/dashboard"><img src="youknowwho.png" alt=""> YouKnowWhoAcademy</a>
             </div>
         </div>
+
         <div class="section">
             <h3>Shop</h3>
             <div class="link-container">
-                <a target="_blank" href="https://www.batabd.com/collections/sports"><img src="bata.png"> Bata</a>
-                <a target="_blank" href="https://apex4u.com/category/men-sports-shoes?sortby=new_arrivals"><img src="apex.png"> Apex</a>
-                <a target="_blank" href="https://www.daraz.com.bd/"><img src="daraz.png"> Daraz</a>
-                <a target="_blank" href="https://naturals.com.bd/"><img src="naturals.png"> Naturals</a>
-                <a target="_blank" href="https://www.rokomari.com/book"><img src="rokomari.png"> Rokomari</a>
+                <a target="_blank" href="https://www.batabd.com/collections/sports"><img src="bata.png" alt=""> Bata</a>
+                <a target="_blank" href="https://apex4u.com/category/men-sports-shoes?sortby=new_arrivals"><img src="apex.png" alt=""> Apex</a>
+                <a target="_blank" href="https://www.daraz.com.bd/"><img src="daraz.png" alt=""> Daraz</a>
+                <a target="_blank" href="https://naturals.com.bd/"><img src="naturals.png" alt=""> Naturals</a>
+                <a target="_blank" href="https://www.rokomari.com/book"><img src="rokomari.png" alt=""> Rokomari</a>
             </div>
         </div>
 
         <div class="section">
             <h3>Movies and Series</h3>
             <div class="link-container">
-                
-                <a target="_blank" href="http://iptvidn.com/"><img src="entertainment.png"> IPTV</a>
-
-                <a target="_blank" href="https://www.notion.so/Sync-it-1513b30aed014d7d857a9544d55b4dc1"><img src="notion.png"> Sync IT</a>
-                <a target="_blank" href="https://fojik.site/"><img src="entertainment.png"> MLWBD</a>
-                <a target="_blank" href="http://172.16.50.9/"><img src="entertainment.png"> DhakaFlix</a>
-                <a target="_blank" href="http://circleftp.net/"><img src="entertainment.png"> CircleFTP</a>
-                <a target="_blank" href="http://new.circleftp.net/"><img src="entertainment.png"> New CircleFTP</a>
-                <a target="_blank" href="https://4anime.gg/"><img src="entertainment.png"> 4Anime</a>
-                <a target="_blank" href="https://9animetv.to/"><img src="entertainment.png"> 9Anime</a>
-                <a target="_blank" href="https://hianime.to/"><img src="entertainment.png"> HiAnime</a>
-                
+                <a target="_blank" href="http://iptvidn.com/"><img src="entertainment.png" alt=""> IPTV</a>
+                <a target="_blank" href="https://www.notion.so/Sync-it-1513b30aed014d7d857a9544d55b4dc1"><img src="notion.png" alt=""> Sync IT</a>
+                <a target="_blank" href="https://fojik.site/"><img src="entertainment.png" alt=""> MLWBD</a>
+                <a target="_blank" href="http://172.16.50.9/"><img src="entertainment.png" alt=""> DhakaFlix</a>
+                <a target="_blank" href="http://circleftp.net/"><img src="entertainment.png" alt=""> CircleFTP</a>
+                <a target="_blank" href="http://new.circleftp.net/"><img src="entertainment.png" alt=""> New CircleFTP</a>
+                <a target="_blank" href="https://4anime.gg/"><img src="entertainment.png" alt=""> 4Anime</a>
+                <a target="_blank" href="https://9animetv.to/"><img src="entertainment.png" alt=""> 9Anime</a>
+                <a target="_blank" href="https://hianime.to/"><img src="entertainment.png" alt=""> HiAnime</a>
             </div>
         </div>
-
 
         <div class="section">
             <h3>Others</h3>
             <div class="link-container">
-                <a target="_blank" href="https://www.rokomari.com/reader/book/269807"><img src="rokomari.png"> Book</a>
-                <a target="_blank" href="https://services.student.sust.edu/"><img src="sust.png"> MySUST</a>
-                <a target="_blank" href="https://clipdrop.co/"><img src="clipdrop.png"> Clipdrop</a>
-                <a target="_blank" href="https://excalidraw.com/"><img src="excalidraw.png"> Excalidraw</a>
-                <a target="_blank" href="https://github.com/shshafin999/shshafin999.github.io/blob/main/index.html"><img src="github.png"> Github Bookmark</a>
-                <a target="_blank" href="https://podcast.adobe.com/en/enhance"><img src="images.png"> Adobe Enhancement</a>
+                <a target="_blank" href="https://www.rokomari.com/reader/book/269807"><img src="rokomari.png" alt=""> Book</a>
+                <a target="_blank" href="https://services.student.sust.edu/"><img src="sust.png" alt=""> MySUST</a>
+                <a target="_blank" href="https://clipdrop.co/"><img src="clipdrop.png" alt=""> Clipdrop</a>
+                <a target="_blank" href="https://excalidraw.com/"><img src="excalidraw.png" alt=""> Excalidraw</a>
+                <a target="_blank" href="https://github.com/shshafin999/shshafin999.github.io/blob/main/index.html"><img src="github.png" alt=""> Github Bookmark</a>
+                <a target="_blank" href="https://podcast.adobe.com/en/enhance"><img src="images.png" alt=""> Adobe Enhancement</a>
             </div>
         </div>
-        
     </div>
-    <footer style="height: 100px;">
-    </footer>
 
-
-
-
-    <div class="section" style="margin-left: 150px; margin-bottom: 30px; width: 1000px;">
-        <h3>Others</h3>
-        <div class="link-container">
-            <a target="_blank" href="https://www.prothomalo.com/world/hljaoxeamn"><img src="prothomalo.png"> বিশ্বের ১০ প্রাচীন শহর</a>
-            <a target="_blank" href="https://www.prothomalo.com/world/yl1n6qct8q"><img src="prothomalo.png"> মধ্যযুগের উন্নত ও বৃহৎ ১০ নগর</a>
-            <a target="_blank" href="https://www.prothomalo.com/world/85aphhnnfn"><img src="prothomalo.png"> সবচেয়ে ভালো পরিবেশের ১০ দেশ</a>
-            <a target="_blank" href="https://www.prothomalo.com/religion/islam/pk3j489apg"><img src="prothomalo.png"> শুধু রমজান নয়, মৃত্যু পর্যন্ত ইবাদত</a>
-            <a target="_blank" href="https://www.prothomalo.com/world/cow32i5jx0"><img src="prothomalo.png"> কয়েক শ বছর ধরে চলেছে যে ১০ যুদ্ধ</a>
+    <div class="wide-section">
+        <h3>News & Articles</h3>
+        <div class="link-container" style="align-items: center;">
+            <a target="_blank" href="https://www.prothomalo.com/world/hljaoxeamn"><img src="prothomalo.png" alt=""> বিশ্বের ১০ প্রাচীন শহর</a>
+            <a target="_blank" href="https://www.prothomalo.com/world/yl1n6qct8q"><img src="prothomalo.png" alt=""> মধ্যযুগের উন্নত ও বৃহৎ ১০ নগর</a>
+            <a target="_blank" href="https://www.prothomalo.com/world/85aphhnnfn"><img src="prothomalo.png" alt=""> সবচেয়ে ভালো পরিবেশের ১০ দেশ</a>
+            <a target="_blank" href="https://www.prothomalo.com/religion/islam/pk3j489apg"><img src="prothomalo.png" alt=""> শুধু রমজান নয়, মৃত্যু পর্যন্ত ইবাদত</a>
+            <a target="_blank" href="https://www.prothomalo.com/world/cow32i5jx0"><img src="prothomalo.png" alt=""> কয়েক শ বছর ধরে চলেছে যে ১০ যুদ্ধ</a>
         </div>
     </div>
 
-
-    <div class="section" style="margin-left: 150px; width: 1000px;">
-        <h3>Code Snippet</h3>
-        <!-- <div class="link-container"> -->
+    <div class="wide-section">
+        <h3>Code Snippet & Notes</h3>
+        <div class="code-snippet">
             <span>Directly go to that path for cmd: &nbsp;&nbsp;&nbsp;</span> 
-            <p> </p>
-            <span style="color: red;"> cd C:\Users\pc\Documents\CP Sublime </span>  
             <p></p>
+            <span class="red"> cd C:\Users\pc\Documents\CP Sublime </span>  
+            <p></p><br>
+            
             <span>Directly go to that path for git bash: &nbsp;&nbsp;&nbsp;</span> 
-            <p> </p>
-            <span style="color: red;"> cd "/c/Users/pc/Documents/CP Sublime" </span> 
             <p></p>
-            <span style="color: red;"> cd /c/Users/pc/Documents/CP\ Sublime </span> 
+            <span class="red"> cd "/c/Users/pc/Documents/CP Sublime" </span> 
             <p></p>
-            <span> to run in cmd : </span>
-            <span style="color: red;"> g++ l.cpp and a </span>
-            <p></p>
-            <span>to run in git bash : </span>
-            <span style="color: red;">g++ -o l l.cpp and ./a </span>
+            <span class="red"> cd /c/Users/pc/Documents/CP\ Sublime </span> 
+            <p></p><br>
+            
+            <span>To run in cmd: </span>
+            <span class="red"> g++ l.cpp and a </span>
+            <p></p><br>
+            
+            <span>To run in git bash: </span>
+            <span class="red">g++ -o l l.cpp and ./a </span>
+            <br><br>
+            
+            <hr style="border: 1px solid #ccc; margin: 20px 0;">
 
             <p>Find the smallest index which value has greater or equal to target = 12. ( Lower Bound )</p>
             <p>Find the smallest index which value has greater to target = 12. ( Upper  Bound )</p>
-            <p>*s.lower_bound(7)  returns first element x ≥ 7 . . .*s.upper_bound(7) returns first element x > 7 </p>
-        
+            <p><strong>*s.lower_bound(7)</strong> returns first element x ≥ 7</p>
+            <p><strong>*s.upper_bound(7)</strong> returns first element x > 7</p>
+            
+            <hr style="border: 1px solid #ccc; margin: 20px 0;">
+
             <p>I just need time</p> 
             <p>Snappin' 1, 2, where are you?</p> 
             <p>You’re still in my heart</p>
             <p>Snappin 3, 4, don’t need you here anymore</p>
-            <p>Get out of my heart </p>
-            <p>‘Cause I might snap </p>
-        <!-- </div> -->
+            <p>Get out of my heart</p>
+            <p>‘Cause I might snap</p>
+        </div>
     </div>
 
-
-
-    
-
-
-    <footer style="height: 200px;">
+    <footer style="height: 100px;">
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
