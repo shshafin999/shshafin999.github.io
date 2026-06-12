@@ -40,18 +40,9 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: #000000;
-            padding: 10px 15px;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-            transition: color 0.2s, transform 0.2s;
+            
         }
 
-        .link-container_upper a:hover {
-            color: rgb(236, 15, 15);
-            transform: translateY(-2px);
-        }
 
         .link-container_upper a img {
             width: 20px;
@@ -152,14 +143,20 @@
         }
 
         /* Mobile Responsiveness */ 
+        /* Mobile Responsiveness */ 
         @media (max-width: 768px) {
             .link-container_upper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* Strictly forces 2 columns */
                 gap: 10px;
+                padding: 0 10px; /* Prevents touching the screen edges */
             }
 
             .link-container_upper a {
-                width: 46%; /* Places two buttons side-by-side on mobile */
-                justify-content: center;
+                width: 100%; /* Takes up its half of the grid */
+                justify-content: flex-start; /* Aligns content better on small screens */
+                padding: 10px 8px; /* Slightly reduced padding */
+                font-size: 14px; /* Slightly smaller text to prevent overflow */
             }
 
             .sections {
