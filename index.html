@@ -35,18 +35,15 @@
         }
 
         .link-container_upper a {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none; 
-    color: #000000; 
-}
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none; 
+            color: #000000; 
+        }
         .link-container_upper a:hover {
-    color: rgb(236, 15, 15); /* হোভার করলে আগের মতোই লাল হবে */
-}
-
-       
-
+            color: rgb(236, 15, 15);
+        }
 
         .link-container_upper a img {
             width: 20px;
@@ -115,7 +112,7 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             width: 90%;
             max-width: 1000px;
-            margin: 40px auto; /* Centers the block automatically */
+            margin: 40px auto; 
             text-align: center;
         }
 
@@ -131,7 +128,7 @@
             padding: 20px;
             border-radius: 8px;
             line-height: 1.6;
-            overflow-x: auto; /* Allows horizontal scrolling on mobile so it doesn't break the layout */
+            overflow-x: auto; 
         }
 
         .code-snippet span.red {
@@ -147,20 +144,19 @@
         }
 
         /* Mobile Responsiveness */ 
-        /* Mobile Responsiveness */ 
         @media (max-width: 768px) {
             .link-container_upper {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr); /* Strictly forces 2 columns */
+                grid-template-columns: repeat(2, 1fr); 
                 gap: 10px;
-                padding: 0 10px; /* Prevents touching the screen edges */
+                padding: 0 10px; 
             }
 
             .link-container_upper a {
-                width: 100%; /* Takes up its half of the grid */
-                justify-content: flex-start; /* Aligns content better on small screens */
-                padding: 10px 8px; /* Slightly reduced padding */
-                font-size: 14px; /* Slightly smaller text to prevent overflow */
+                width: 100%; 
+                justify-content: flex-start; 
+                padding: 10px 8px; 
+                font-size: 14px; 
             }
 
             .sections {
@@ -169,7 +165,7 @@
 
             .section {
                 width: 100%;
-                max-width: 350px; /* Allows cards to fill screen width on phones */
+                max-width: 350px; 
             }
 
             .wide-section {
@@ -180,7 +176,7 @@
 
         @media (max-width: 480px) {
             .link-container_upper a {
-                width: 100%; /* Stacks top links fully vertically on very small screens */
+                width: 100%; 
             }
         }
     </style>
@@ -201,6 +197,8 @@
         </div>
     </div>
 
+    <div class="sections">
+        
         <div class="section">
             <h3>News</h3>
             <div class="link-container">
@@ -214,7 +212,6 @@
         <div class="section">
             <h3>Notion 1</h3>
             <div class="link-container">
-                
                 <a target="_blank" href="https://app.notion.com/p/AI-News-3781b726964580888245f2132e44d698"><img src="notion.png" alt=""> AI News</a>
                 <a target="_blank" href="https://www.notion.so/Next-Level-AI-Driven-Software-Engineering-Bootcamp-3521b726964580d9ade3f2f8eee92dbc"><img src="notion.png" alt=""> Next Level</a>
                 <a target="_blank" href="https://www.notion.so/Complete-Web-Dev-2d21b7269645802b8b88fc9474ace042"><img src="notion.png" alt=""> Complete Web Dev</a>
@@ -237,9 +234,7 @@
                 <a target="_blank" href="https://app.notion.com/p/Daily-Rituals-12c1b726964580068b9ced14ff8d0bfc"><img src="notion.png" alt=""> Daily Rituals</a>
                 <a target="_blank" href="https://app.notion.com/p/Prompt-World-35f1b726964580b39a57c40c421d25a8"><img src="notion.png" alt=""> Prompt World</a>
                 <a target="_blank" href="https://app.notion.com/p/Movies-Entertainment-2e21b726964580348ef8f75bc13cc698"><img src="notion.png" alt=""> Movies/Series</a>
-                
-                
-                </div>
+            </div>
         </div>
     
         <div class="section">
@@ -253,7 +248,7 @@
             </div>
         </div>
 
-    <    div class="section">
+        <div class="section">
             <h3>Others</h3>
             <div class="link-container">
                 <a target="_blank" href="https://www.rokomari.com/reader/book/269807"><img src="rokomari.png" alt=""> Book</a>
@@ -265,7 +260,6 @@
             </div>
         </div>
 
-         <div class="sections">
         <div class="section">
             <h3>Judges</h3>
             <div class="link-container">
@@ -311,8 +305,6 @@
             </div>
         </div>
 
-        
-
         <div class="section">
             <h3>Olympiad</h3>
             <div class="link-container">
@@ -321,11 +313,6 @@
                 <a target="_blank" href="https://usaco.guide/dashboard"><img src="usaco.png" alt=""> USACO</a>
             </div>
         </div>
-
-
-       
-
-        
 
         <div class="section">
             <h3>Movies and Series</h3>
@@ -342,7 +329,7 @@
             </div>
         </div>
 
-              <div class="section">
+        <div class="section">
             <h3>Learn</h3>
             <div class="link-container">
                 <a target="_blank" href="https://codeforces.com/edu/course/2"><img src="codeforces.png" alt=""> CF Edu</a>
@@ -360,9 +347,7 @@
             </div>
         </div>
 
-        
-    </div>
-
+    </div> 
     <div class="wide-section">
         <h3>News & Articles</h3>
         <div class="link-container" style="align-items: center;">
